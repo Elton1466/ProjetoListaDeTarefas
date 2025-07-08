@@ -1,7 +1,7 @@
-# Lista de Tarefas - Aplicação Console
+# Aplicação Lista de Tarefas
 
 ## Descrição do Projeto
-Este projeto é uma aplicação de lista de tarefas simples, desenvolvida para ser utilizada através do terminal. O sistema permite cadastrar, alterar o status e filtrar tarefas em uma lista. As tarefas são armazenadas em um banco de dados SQLite, utilizando a API JDBC. O objetivo principal é praticar o uso de banco de dados e manipulação de dados em Java, além de trabalhar com o fluxo de desenvolvimento colaborativo em um projeto de software.
+Este projeto é uma aplicação de lista de tarefas, o sistema permite cadastrar, alterar o status e filtrar tarefas em uma lista. As tarefas são armazenadas em um banco de dados SQLite, utilizando a API JDBC. O objetivo principal é praticar o uso de banco de dados e manipulação de dados em Java, além de trabalhar com o fluxo de desenvolvimento colaborativo em um projeto de software.
 
 ## Funcionalidades
 ### Cadastrar tarefa:
