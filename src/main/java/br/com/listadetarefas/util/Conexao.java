@@ -1,4 +1,3 @@
-// src/main/java/br/com/seuprojeto/util/Conexao.java
 package br.com.listadetarefas.util;
 
 import java.sql.Connection;

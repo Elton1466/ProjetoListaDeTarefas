@@ -1,4 +1,3 @@
-// src/main/java/br/com/seuprojeto/model/Tarefa.java
 package br.com.listadetarefas.model;
 
 import java.time.LocalDateTime;
