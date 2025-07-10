@@ -1,48 +1,31 @@
 package br.com.listadetarefas;
 
-import br.com.listadetarefas.dao.TarefaDAO;
-import br.com.listadetarefas.model.Tarefa;
-import br.com.listadetarefas.ui.TerminalListaDeTarefasUI;
-import br.com.listadetarefas.ui.ListaDeTarefasUI;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class App {
-    private static final TarefaDAO dao = new TarefaDAO();
-    private static final ListaDeTarefasUI ui = new TerminalListaDeTarefasUI();
+import java.net.URL;
+
+public class App extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        String fxmlPath = "TelaPrincipal.fxml";
+        URL fxmlUrl = Thread.currentThread().getContextClassLoader().getResource(fxmlPath);
+
+        if (fxmlUrl == null) {
+            throw new java.io.FileNotFoundException("ERRO CRÍTICO: 'TelaPrincipal.fxml' não foi encontrado! Certifique-se de que o arquivo está na pasta 'resources'.");
+        }
+
+        Parent root = FXMLLoader.load(fxmlUrl);
+        primaryStage.setTitle("Controle de Tarefas");
+        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.show();
+    }
 
     public static void main(String[] args) {
-        int opcao;
-
-        do {
-            ui.exibirMenu();
-            opcao = ui.obterOpcao();
-
-            switch (opcao) {
-                case 1:
-                    String texto = ui.obterDescricaoDaTarefa();
-                    dao.inserir(new Tarefa(texto));
-                    break;
-                case 2:
-                    int id = ui.obterIdDaTarefa();
-                    boolean status = ui.obterStatusDaTarefa();
-                    dao.alterarStatus(id, status);
-                    break;
-                case 3:
-                    ui.exibirTarefas(dao.listarTodas());
-                    break;
-                case 4:
-                    ui.exibirTarefas(dao.listarPendentes());
-                    break;
-                case 5:
-                    ui.exibirTarefas(dao.listarConcluidas());
-                    break;
-                case 0:
-                    ui.exibirMensagem("Saindo...");
-                    break;
-                default:
-                    ui.exibirMensagem("Opção inválida!");
-            }
-        } while (opcao != 0);
-
-        ui.fechar();
+        launch(args);
     }
 }
